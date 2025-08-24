@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  mysql8:
+    image: mysql:8.0
+    container_name: mysql8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: passroot
+      MYSQL_DATABASE: test_indico_220825
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+
+  go_aplikasi:
+    build: .
+    container_name: go_aplikasi
+    depends_on:
+      - mysql8
+    environment:
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: test_indico_220825
+      DB_HOST: mysql8
+      DB_PORT: 3306
+    ports:
+      - "8080:8080"

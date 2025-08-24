@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "46060c67-175e-45f7-8e41-8045488c6f6d",
+		"name": "Indico #220825",
+		"description": "Collection untuk testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3021851",
+		"_collection_link": "https://dark-moon-246338.postman.co/workspace/Test~e043c64b-b4ca-4790-8fdd-0c215f3a0ab8/collection/3021851-46060c67-175e-45f7-8e41-8045488c6f6d?action=share&source=collection_link&creator=3021851"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\": 1,\n    \"quantity\": 2,\n    \"buyer_id\": \"user-456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Settlement Job",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"2025-08-01\",\n    \"to\": \"2025-08-31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/jobs/settlement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jobs",
+						"settlement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Job Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jobs/job_99b0d9f1-a0ba-4a1f-9803-8280e0f1ecc7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jobs",
+						"job_99b0d9f1-a0ba-4a1f-9803-8280e0f1ecc7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jobs/job_41a3c19f-c4fc-4eda-aff8-ee07f01cb6d7/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jobs",
+						"job_41a3c19f-c4fc-4eda-aff8-ee07f01cb6d7",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Downloads",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/downloads/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"downloads",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
